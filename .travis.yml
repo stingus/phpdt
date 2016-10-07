@@ -1,0 +1,20 @@
+language: php
+php:
+- 5.6
+- 7.0
+- hhvm
+sudo: false
+cache:
+  directories:
+  - $HOME/.composer/cache
+before_script:
+- composer install
+script:
+- ./vendor/bin/phpunit
+- ./vendor/bin/phpcs --standard=PSR2 ./src/
+after_script:
+- vendor/bin/test-reporter
+addons:
+  code_climate:
+    repo_token:
+      secure: yVGUnAgK6Lz+8DcExfX0dKfYIcuZhjEso4Dsx2fYlvsYuydVZV7YneYr3KO1AcwpRhninEebG+YtLkl/3stsIeVM50HxhgL7KL182Yf8KBLU2tuTPJqK8Bfd0Nq3LQtMPbZgs2JVBO+9Qzn+y+KTqgXFRsIubAvkTMAqtXO89fSW1ZbbT6F0jGpEvyp2wGebDgBwO/YYOhGMTlmx2BL9pufhwRSCoG6iQN8f0jjSKXzLGiB+jjPDszn6b21Obbq/VEW4RnpVg/xTGaEcH2uA0WpNy1rD2/bhf7nWXA+poLKBwybtrkmC+MkW+PzSPSqHPchOsvCTDprP1QNlTdvYtahKlZSSyfifflVeWCMD08qOjnOw5r+M16+SUfvYAwgL93EkxU6RNWrpu8qm/3YkItk+8I09RGbneozLY6YONBTBzXeVbY4XUvpD0aABH20BHOX+IR6xmZTcUHiHqim7h3pE1PJqcLWzV3v4GYhDdcY1lB+q3d2IE8X2kfEgFPD+zkyu4XQYJnjTzI5uECG9+yTDq/LFqHSM293k+8WCWl3ct+YWb6QAwUBDMlkYQLAvG8uRIIviWNWdmpK1e32Uus9NLJA8zUrJp3mXHimJ7IyrbnCIp96DShFgFW/WmwrhUo6NS0JtCOrZVPm9Q6nZp/aSD2jr0VdIoCZvqsz9sNk=
