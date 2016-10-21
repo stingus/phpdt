@@ -31,6 +31,6 @@ trait ObjectValidationTrait
         if (array_key_exists($value, class_parents(get_called_class()))) {
             return true;
         }
-        throw new InvalidDataTypeException($value, new static);
+        throw new InvalidDataTypeException(__CLASS__, new static);
     }
 }
